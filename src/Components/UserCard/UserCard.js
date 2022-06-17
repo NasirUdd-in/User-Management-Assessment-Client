@@ -4,7 +4,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
-import nasirimage from "../Assets/nasirtheboss.jpg";
+
 const UserCard = ({ singleUser }) => {
   return (
     <div>
@@ -13,7 +13,7 @@ const UserCard = ({ singleUser }) => {
           <CardMedia
             component="img"
             height="140"
-            image={nasirimage}
+            image="https://i.ibb.co/QrcZS1R/placeholder-image-person-jpg-300x248-2.jpg"
             alt="green iguana"
           />
           <CardContent>
