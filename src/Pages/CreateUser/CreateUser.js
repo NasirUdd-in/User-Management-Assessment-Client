@@ -6,6 +6,8 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 // import { NavLink } from "react-router-dom";
 // const useStyles = makeStyles((theme) => ({
 //   paper: {
@@ -41,7 +43,7 @@ const CreateUser = () => {
       email: email,
       phone: phone,
     };
-    fetch("http://localhost:5000/addUser", {
+    fetch("https://glacial-sea-00410.herokuapp.com/addUser", {
       method: "POST",
       headers: {
         Accept: "application/form-data",
@@ -124,17 +126,20 @@ const CreateUser = () => {
               />
             </Grid>
             <Grid item xs={12}>
-              <DatePicker
-                views={["year", "month"]}
-                label="Year and Month"
-                minDate={new Date("2012-03-01")}
-                maxDate={new Date("2023-06-01")}
-                value={new Date()}
-                onChange={(e) => setBirthday(e.target.value)}
-                renderInput={(params) => (
-                  <TextField {...params} helperText={null} />
-                )}
-              />
+              <LocalizationProvider dateAdapter={AdapterDateFns}>
+                <DatePicker
+                  openTo="year"
+                  views={["year", "month", "day"]}
+                  label="Year, month and date"
+                  minDate={new Date("1922-03-01")}
+                  maxDate={new Date()}
+                  value={new Date()}
+                  onChange={(e) => setBirthday(e.target.value)}
+                  renderInput={(params) => (
+                    <TextField {...params} helperText={null} />
+                  )}
+                />
+              </LocalizationProvider>
             </Grid>
             <Grid item xs={12}>
               <TextField
