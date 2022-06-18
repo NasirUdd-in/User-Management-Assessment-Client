@@ -6,6 +6,9 @@ import UserCard from "../UserCard/UserCard";
 import { Container } from "@mui/material";
 import Pagination from "@mui/material/Pagination";
 import usePagination from "../../Hooks/usePagination/usePagination";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+
 const UserList = () => {
   const [user, setUser] = useState([]);
   const [page, setPage] = React.useState(1);
@@ -14,7 +17,7 @@ const UserList = () => {
       .then((res) => res.json())
       .then((data) => setUser(data));
   }, []);
-  const PER_PAGE = 4;
+  const PER_PAGE = 6;
   const count = Math.ceil(user.length / PER_PAGE);
   const _DATA = usePagination(user, PER_PAGE);
 
@@ -24,6 +27,13 @@ const UserList = () => {
   };
   return (
     <Container>
+      <Typography
+        variant="h3"
+        component="div"
+        sx={{ flexGrow: 1, textAlign: "center", my: 4 }}
+      >
+        All User
+      </Typography>
       <Grid
         container
         spacing={{ xs: 2, md: 3 }}
@@ -35,7 +45,14 @@ const UserList = () => {
           </Grid>
         ))}
       </Grid>
-      <Pagination count={count} page={page} onChange={handleChange} />
+      <Box
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        minHeight="20vh"
+      >
+        <Pagination count={count} page={page} onChange={handleChange} />
+      </Box>
     </Container>
   );
 };

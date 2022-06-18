@@ -8,6 +8,8 @@ import Select from "@mui/material/Select";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
+import Box from "@mui/material/Box";
+
 // import { NavLink } from "react-router-dom";
 // const useStyles = makeStyles((theme) => ({
 //   paper: {
@@ -63,8 +65,12 @@ const CreateUser = () => {
   return (
     <Container maxWidth="xs">
       <div>
-        <Typography component="h1" variant="h5">
-          User
+        <Typography
+          variant="h5"
+          component="div"
+          sx={{ flexGrow: 1, textAlign: "center", my: 4 }}
+        >
+          Create New User
         </Typography>
         <form onSubmit={handleSubmit}>
           <Grid container spacing={2}>
@@ -102,7 +108,7 @@ const CreateUser = () => {
             <Grid item xs={12} sm={6}>
               <FormControl fullWidth>
                 <InputLabel required id="demo-simple-select-label">
-                  Age
+                  Gender
                 </InputLabel>
                 <Select
                   labelId="demo-simple-select-label"
@@ -116,16 +122,8 @@ const CreateUser = () => {
                 </Select>
               </FormControl>
             </Grid>
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                fullWidth
-                id="CIty"
-                label="City"
-                onChange={(e) => setCity(e.target.value)}
-              />
-            </Grid>
-            <Grid item xs={12}>
+
+            <Grid item xs={12} sm={6}>
               <LocalizationProvider dateAdapter={AdapterDateFns}>
                 <DatePicker
                   openTo="year"
@@ -140,6 +138,15 @@ const CreateUser = () => {
                   )}
                 />
               </LocalizationProvider>
+            </Grid>
+            <Grid item xs={12} sm={12}>
+              <TextField
+                variant="outlined"
+                fullWidth
+                id="CIty"
+                label="City"
+                onChange={(e) => setCity(e.target.value)}
+              />
             </Grid>
             <Grid item xs={12}>
               <TextField
@@ -168,16 +175,17 @@ const CreateUser = () => {
               />
             </Grid>
           </Grid>
-
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            // className={classes.submit}
-          >
-            Create User
-          </Button>
+          <Box mt={1}>
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+              // className={classes.submit}
+            >
+              Create User
+            </Button>
+          </Box>
         </form>
       </div>
     </Container>
