@@ -18,11 +18,19 @@ const UserCard = ({ singleUser }) => {
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
-              {singleUser.name}
+              {singleUser.firstname} {singleUser.lastname}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              Lizards are a widespread group of squamate reptiles, with over
-              6,000 species, ranging across all continents except Antarctica
+              {singleUser.gender}
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              {singleUser.dateofbirth}
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              {singleUser.email}
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              {singleUser.phone}
             </Typography>
           </CardContent>
         </CardActionArea>

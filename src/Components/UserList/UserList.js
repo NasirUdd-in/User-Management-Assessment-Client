@@ -10,7 +10,7 @@ const UserList = () => {
   const [user, setUser] = useState([]);
   const [page, setPage] = React.useState(1);
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/users")
+    fetch("http://localhost:5000/users")
       .then((res) => res.json())
       .then((data) => setUser(data));
   }, []);
