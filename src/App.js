@@ -1,5 +1,5 @@
 import "./App.css";
-import UserList from "./Components/UserList/UserList";
+// import UserList from "./Components/UserList/UserList";
 // import Header from "./Shared/Header/Header";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Users from "./Pages/Users/Users";
@@ -26,7 +26,6 @@ function App() {
           </Route>
         </Switch>
       </Router>
-      <UserList />
     </div>
   );
 }

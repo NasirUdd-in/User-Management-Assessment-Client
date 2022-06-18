@@ -10,18 +10,21 @@ import { Link, NavLink } from "react-router-dom";
 
 const Navigation = () => {
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1, textAlign: 'center'  }}>
       <AppBar position="static">
         <Toolbar>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Doctors Portal
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1, textAlign: 'center' }}>
+            Selise Portal
           </Typography>
 
-          <NavLink to="/Users">
-            <Button color="inherit">Users</Button>
+          <NavLink
+            style={{ textDecoration: "none", marginRight: "4px" }}
+            to="/Users"
+          >
+            <Button variant="contained">Users</Button>
           </NavLink>
-          <NavLink to="/Createuser">
-            <Button color="inherit">Create Users</Button>
+          <NavLink style={{ textDecoration: "none" }} to="/Createuser">
+            <Button variant="contained">Create Users</Button>
           </NavLink>
         </Toolbar>
       </AppBar>
